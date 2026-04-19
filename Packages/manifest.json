@@ -35,8 +35,12 @@
     "com.unity.modules.unitywebrequestwww": "1.0.0",
     "com.unity.modules.vehicles": "1.0.0",
     "com.unity.modules.video": "1.0.0",
+    
     "com.unity.modules.vr": "1.0.0",
+    "com.toshi.vlivekit.cameraunit": "https://github.com/toshi-kundesu/VLiveKit_camera.git?path=/Assets/toshi.VLiveKit/VLiveCameraUnit#test0.0.9",
+    
     "com.unity.modules.wind": "1.0.0",
+    
     "com.unity.modules.xr": "1.0.0"
   }
 }
