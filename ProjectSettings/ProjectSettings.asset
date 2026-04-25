@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 239be8c3ce01f7543a2b78e56332e31b
+  productGUID: 2fd5f80464edefa4c90c7f2bda635a05
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: VLiveKit_sandbox
+  productName: VLiveProjectTemplate
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -840,14 +840,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: VLiveKit_sandbox
+  metroPackageName: VLiveProjectTemplate
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: VLiveKit_sandbox
+  metroApplicationDescription: VLiveProjectTemplate
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -916,10 +916,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5a55ad28-6b75-4d43-8de2-e305e9afe4ac
+  cloudProjectId: 1701da83-91c5-4704-a3d4-1a8843de1c9c
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: VLiveKit_sandbox
+  projectName: VLiveProjectTemplate
   organizationId: toshikun_0112
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
