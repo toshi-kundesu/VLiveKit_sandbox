@@ -10,11 +10,11 @@
       "hash": "0b39cd922502482659f3f7789a4e2ea6287e73cc"
     },
     "com.toshi.vlivekit.ledvision": {
-      "version": "https://github.com/toshi-kundesu/VLiveKit_LEDVision.git?path=/Assets/toshi.VLiveKit/LEDVision#main",
+      "version": "https://github.com/toshi-kundesu/VLiveKit_LEDVision.git?path=/Assets/toshi.VLiveKit/LEDVision#0.0.3",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "25308d9a150085f67beba67b3bd612c72c36f92f"
+      "hash": "fce4a219b98f4ad08f77a130f7a29102073155ac"
     },
     "com.unity.burst": {
       "version": "1.8.8",
