@@ -14,7 +14,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "7c7b625606301e2e764590bb16962ef94bcc001d"
+      "hash": "60f51c04a9908cbd220039771c7509b1d68d9997"
     },
     "com.toshi.vlivekit.lensfilters": {
       "version": "https://github.com/toshi-kundesu/VLiveKit_LiveLensFilters.git?path=/Assets/toshi.VLiveKit/LiveLensFilters#main",
@@ -24,6 +24,12 @@
         "com.unity.visual-compositor": "0.30.7-preview"
       },
       "hash": "a83c27335f4b890b00f5919c54c5a2dd1689f67b"
+    },
+    "com.toshi.vlivekit.livetoon": {
+      "version": "file:../External/VLiveKit_LiveToon/Assets/toshi.VLiveKit/livetoon",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
