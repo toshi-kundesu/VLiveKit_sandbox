@@ -1,3 +1,3 @@
-[submodule "Packages/com.toshi.vlivekit.livetoon"]
-	path = Packages/com.toshi.vlivekit.livetoon
+[submodule "Packages/VLiveKit_LiveToon"]
+	path = Packages/VLiveKit_LiveToon
 	url = https://github.com/toshi-kundesu/VLiveKit_LiveToon.git
