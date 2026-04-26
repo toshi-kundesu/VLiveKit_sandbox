@@ -1,0 +1,3 @@
+[submodule "External/VLiveKit_LiveToon"]
+	path = External/VLiveKit_LiveToon
+	url = https://github.com/toshi-kundesu/VLiveKit_LiveToon.git
