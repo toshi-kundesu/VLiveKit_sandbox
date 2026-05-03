@@ -1,9 +1,9 @@
 {
   "dependencies": {
 "com.toshi.vlivekit.livetoon": "file:VLiveKit_LiveToon/Assets/toshi.VLiveKit/livetoon",
-    "com.toshi.vlivekit.cameraunit": "https://github.com/toshi-kundesu/VLiveKit_camera.git?path=/Assets/toshi.VLiveKit/VLiveCameraUnit#main",
-    "com.toshi.vlivekit.ledvision": "https://github.com/toshi-kundesu/VLiveKit_LEDVision.git?path=/Assets/toshi.VLiveKit/LEDVision#main",
-    "com.toshi.vlivekit.lensfilters": "https://github.com/toshi-kundesu/VLiveKit_LiveLensFilters.git?path=/Assets/toshi.VLiveKit/LiveLensFilters#main",
+    "com.toshi.vlivekit.cameraunit": "file:VLiveKit_camera/Assets/toshi.VLiveKit/VLiveCameraUnit",
+    "com.toshi.vlivekit.ledvision": "file:VLiveKit_LEDVision/Assets/toshi.VLiveKit/LEDVision",
+    "com.toshi.vlivekit.lensfilters": "file:VLiveKit_LiveLensFilters/Assets/toshi.VLiveKit/LiveLensFilters",
     "com.unity.feature.development": "1.0.1",
     "com.unity.render-pipelines.high-definition": "14.0.8",
     "com.unity.textmeshpro": "3.0.6",

@@ -1,3 +1,12 @@
 [submodule "Packages/VLiveKit_LiveToon"]
 	path = Packages/VLiveKit_LiveToon
 	url = https://github.com/toshi-kundesu/VLiveKit_LiveToon.git
+[submodule "Packages/VLiveKit_camera"]
+	path = Packages/VLiveKit_camera
+	url = https://github.com/toshi-kundesu/VLiveKit_camera.git
+[submodule "Packages/VLiveKit_LiveLensFilters"]
+	path = Packages/VLiveKit_LiveLensFilters
+	url = https://github.com/toshi-kundesu/VLiveKit_LiveLensFilters.git
+[submodule "Packages/VLiveKit_LEDVision"]
+	path = Packages/VLiveKit_LEDVision
+	url = https://github.com/toshi-kundesu/VLiveKit_LEDVision.git
