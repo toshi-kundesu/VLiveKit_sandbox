@@ -10,3 +10,6 @@
 [submodule "Packages/VLiveKit_LEDVision"]
 	path = Packages/VLiveKit_LEDVision
 	url = https://github.com/toshi-kundesu/VLiveKit_LEDVision.git
+[submodule "External/Memo"]
+	path = External/Memo
+	url = https://github.com/toshi-kundesu/Memo.git
