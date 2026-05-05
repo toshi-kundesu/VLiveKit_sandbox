@@ -13,3 +13,6 @@
 [submodule "External/Memo"]
 	path = External/Memo
 	url = https://github.com/toshi-kundesu/Memo.git
+[submodule "Packages/VLiveKit_TestAssetsContainer"]
+	path = Packages/VLiveKit_TestAssetsContainer
+	url = https://github.com/toshi-kundesu/VLiveKit_TestAssetsContainer.git

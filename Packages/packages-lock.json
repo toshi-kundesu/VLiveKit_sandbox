@@ -28,6 +28,12 @@
       "source": "local",
       "dependencies": {}
     },
+    "com.toshi.vlivekit.testassetscontainer": {
+      "version": "file:VLiveKit_TestAssetsContainer/Assets/toshi.VLiveKit/TestAssetsContainer",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 3,

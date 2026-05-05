@@ -4,6 +4,7 @@
     "com.toshi.vlivekit.cameraunit": "file:VLiveKit_camera/Assets/toshi.VLiveKit/VLiveCameraUnit",
     "com.toshi.vlivekit.ledvision": "file:VLiveKit_LEDVision/Assets/toshi.VLiveKit/LEDVision",
     "com.toshi.vlivekit.lensfilters": "file:VLiveKit_LiveLensFilters/Assets/toshi.VLiveKit/LiveLensFilters",
+    "com.toshi.vlivekit.testassetscontainer": "file:VLiveKit_TestAssetsContainer/Assets/toshi.VLiveKit/TestAssetsContainer",
     "com.unity.feature.development": "1.0.1",
     "com.unity.render-pipelines.high-definition": "14.0.8",
     "com.unity.textmeshpro": "3.0.6",
