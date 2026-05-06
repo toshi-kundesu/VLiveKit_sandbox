@@ -1,5 +1,22 @@
 {
   "dependencies": {
+    "com.hecomi.ulipsync": {
+      "version": "3.1.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.burst": "1.4.11",
+        "com.unity.mathematics": "1.2.5"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "com.hecomi.uosc": {
+      "version": "2.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "com.toshi.memo": {
       "version": "file:Memo",
       "depth": 0,
@@ -10,7 +27,13 @@
       "version": "file:VLiveKit",
       "depth": 0,
       "source": "embedded",
-      "dependencies": {}
+      "dependencies": {
+        "jp.keijiro.klak.ndi": "2.1.4",
+        "jp.keijiro.klak.hap": "0.1.20",
+        "com.hecomi.ulipsync": "3.1.4",
+        "com.hecomi.uosc": "2.2.0",
+        "com.unity.live-capture": "4.0.1"
+      }
     },
     "com.toshi.vlivekit.artnetlink": {
       "version": "file:VLiveKit_ArtNetLink/Assets/toshi.VLiveKit/ArtNetLink",
@@ -199,6 +222,19 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.live-capture": {
+      "version": "4.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.timeline": "1.7.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.mathematics": {
@@ -674,6 +710,22 @@
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.subsystems": "1.0.0"
       }
+    },
+    "jp.keijiro.klak.hap": {
+      "version": "0.1.20",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.klak.ndi": {
+      "version": "2.1.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.screencapture": "1.0.0"
+      },
+      "url": "https://registry.npmjs.com"
     }
   }
 }
