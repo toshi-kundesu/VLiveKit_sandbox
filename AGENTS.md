@@ -33,6 +33,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - Before publishing, run `npm.cmd pack --dry-run --cache D:\GitHub\VLiveKit_sandbox\.npm-cache` from the package root and confirm the tarball contains only intended files.
 - After publishing, verify with `npm.cmd view <package> version dependencies --json --cache D:\GitHub\VLiveKit_sandbox\.npm-cache`.
 - Release order for a package: bump `package.json`, update README install examples if needed, pack dry-run, publish to npm, commit, tag `vX.Y.Z`, push branch/tag, then commit/push the sandbox submodule pointer.
+- When releasing a submodule change, push the matching `vX.Y.Z` tag from that submodule repository; do not rely on the sandbox submodule pointer alone as the release marker.
 
 ## Unity/C# Conventions
 
