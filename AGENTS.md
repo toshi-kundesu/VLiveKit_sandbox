@@ -71,4 +71,5 @@ git submodule update --init --recursive
 - If a task depends on current external docs, verify them from official sources before implementing.
 - When a durable project rule, release lesson, license constraint, or recurring workflow becomes clear, proactively add a concise note to this file and mention it to the user. Avoid adding temporary conversation notes or noisy details.
 - Keep VLiveKitPackageManager UI restrained: two-color styling, dark/light base plus cyan accent, and no decorative multicolor signal lines.
+- In Unity IMGUI editor windows, do not trust a standalone `stylesReady` flag after domain reloads; also check cached `GUIStyle` fields for null before skipping style initialization.
 - When reading Unity Console entries via reflection, `LogEntry` may behave like a value type; after `GetEntryInternal` returns, read the populated entry back from the invocation argument array.
