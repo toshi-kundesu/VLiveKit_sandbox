@@ -34,3 +34,6 @@
 [submodule "Packages/VLiveKit_VideoRack"]
 	path = Packages/VLiveKit_VideoRack
 	url = https://github.com/toshi-kundesu/VLiveKit_VideoRack.git
+[submodule "Packages/VLiveKit"]
+	path = Packages/VLiveKit
+	url = https://github.com/toshi-kundesu/VLiveKit.git
