@@ -16,3 +16,15 @@
 [submodule "Packages/VLiveKit_TestAssetsContainer"]
 	path = Packages/VLiveKit_TestAssetsContainer
 	url = https://github.com/toshi-kundesu/VLiveKit_TestAssetsContainer.git
+[submodule "Packages/VLiveKit_ArtNetLink"]
+	path = Packages/VLiveKit_ArtNetLink
+	url = https://github.com/toshi-kundesu/VLiveKit_ArtNetLink.git
+[submodule "Packages/VLiveKit_PerformerAct"]
+	path = Packages/VLiveKit_PerformerAct
+	url = https://github.com/toshi-kundesu/VLiveKit_PerformerAct.git
+[submodule "Packages/VLiveKit_StageBuilder"]
+	path = Packages/VLiveKit_StageBuilder
+	url = https://github.com/toshi-kundesu/VLiveKit_StageBuilder.git
+[submodule "Packages/VLiveKit_ThirdPartyUtilities"]
+	path = Packages/VLiveKit_ThirdPartyUtilities
+	url = https://github.com/toshi-kundesu/VLiveKit_ThirdPartyUtilities.git
