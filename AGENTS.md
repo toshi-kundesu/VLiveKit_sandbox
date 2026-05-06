@@ -27,6 +27,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - Do not publish or package third-party binaries/tools as first-party VLiveKit packages unless the user explicitly approves the license plan. In particular, do not publish `VLiveKit_ThirdPartyUtilities` to npm by default.
 - Individual VLiveKit packages are separate submodules and npm packages. Updating one package requires changing that package's own `package.json`, committing/tagging/pushing that submodule, then updating the sandbox submodule pointer.
 - The installer reads package metadata from `package-catalog.json`. Keep repository/documentation links there so Refresh can pick up catalog changes from the latest `com.toshi.vlivekit` release.
+- Include `com.toshi.vlivekit` itself in the installer update list/catalog so the package manager can update itself through the same Refresh/Update flow.
 - Local package folders and `Assets/` folders are detection targets only. The installer should not overwrite local/submodule/Assets installs automatically.
 - `Refresh` should check the latest published npm registry state. It should not be assumed to track GitHub `main` or submodule HEADs directly.
 - Use `npm.cmd` on Windows PowerShell for npm operations to avoid `npm.ps1` execution policy issues.
@@ -34,6 +35,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - After publishing, verify with `npm.cmd view <package> version dependencies --json --cache D:\GitHub\VLiveKit_sandbox\.npm-cache`.
 - Release order for a package: bump `package.json`, update README install examples if needed, pack dry-run, publish to npm, commit, tag `vX.Y.Z`, push branch/tag, then commit/push the sandbox submodule pointer.
 - When releasing a submodule change, push the matching `vX.Y.Z` tag from that submodule repository; do not rely on the sandbox submodule pointer alone as the release marker.
+- When releasing `Packages/VLiveKit_VideoRack` with bundled FFmpeg, read `Assets/toshi.VLiveKit/VideoRack/ThirdPartyNotices/FFmpeg.md` first. Preserve `Tools/FFmpeg/Windows/ffmpeg.exe`, `GPL-3.0.txt`, and upstream `README.txt`, and include clear Corresponding Source instructions in the release notes/download page.
 
 ## Unity/C# Conventions
 
@@ -68,3 +70,4 @@ git submodule update --init --recursive
 - Prefer concise Japanese explanations when the user writes in Japanese.
 - If a task depends on current external docs, verify them from official sources before implementing.
 - When a durable project rule, release lesson, license constraint, or recurring workflow becomes clear, proactively add a concise note to this file and mention it to the user. Avoid adding temporary conversation notes or noisy details.
+- Keep VLiveKitPackageManager UI restrained: two-color styling, dark/light base plus cyan accent, and no decorative multicolor signal lines.
