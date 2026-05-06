@@ -65,3 +65,4 @@ git submodule update --init --recursive
 - Use this file as the project memory for Codex CLI/Codex Desktop.
 - Prefer concise Japanese explanations when the user writes in Japanese.
 - If a task depends on current external docs, verify them from official sources before implementing.
+- When a durable project rule, release lesson, license constraint, or recurring workflow becomes clear, proactively add a concise note to this file and mention it to the user. Avoid adding temporary conversation notes or noisy details.
