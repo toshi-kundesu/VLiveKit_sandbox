@@ -28,3 +28,9 @@
 [submodule "Packages/VLiveKit_ThirdPartyUtilities"]
 	path = Packages/VLiveKit_ThirdPartyUtilities
 	url = https://github.com/toshi-kundesu/VLiveKit_ThirdPartyUtilities.git
+[submodule "Packages/VLiveKit_StageEffect"]
+	path = Packages/VLiveKit_StageEffect
+	url = https://github.com/toshi-kundesu/VLiveKit_StageEffect.git
+[submodule "Packages/VLiveKit_VideoRack"]
+	path = Packages/VLiveKit_VideoRack
+	url = https://github.com/toshi-kundesu/VLiveKit_VideoRack.git
