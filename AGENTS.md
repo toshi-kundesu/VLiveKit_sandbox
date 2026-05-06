@@ -38,6 +38,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 
 - Prefer existing local namespaces, folder layout, asmdef boundaries, and editor/runtime separation.
 - Put editor-only code under `Editor` folders and keep runtime assemblies free of `UnityEditor` references.
+- Put custom Unity editor menu items under `toshi/...`; do not place VLiveKit windows or tools under `Tools/...`.
 - Use Unity serialization-friendly patterns for MonoBehaviours and ScriptableObjects.
 - Keep public serialized fields and inspector labels stable unless a migration is part of the task.
 - Add comments only for non-obvious Unity lifecycle, rendering, shader, or timeline behavior.
