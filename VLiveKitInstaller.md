@@ -13,9 +13,9 @@ The installer checks Unity Package Manager, `Packages/manifest.json`, local `Pac
 
 You can run it again later from:
 
-`Window > VLiveKit > Check Install Status`
+`toshi > VLiveKit > Check Install Status`
 
-`Window > VLiveKit > Install Missing Packages`
+`toshi > VLiveKit > Install Missing Packages`
 
 ## Unitypackage
 

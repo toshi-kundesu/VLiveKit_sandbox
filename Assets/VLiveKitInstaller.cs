@@ -10,7 +10,7 @@ using UnityEngine;
 [InitializeOnLoad]
 internal static class VLiveKitInstaller
 {
-    private const string MenuRoot = "Window/VLiveKit/";
+    private const string MenuRoot = "toshi/VLiveKit/";
     private static string PromptEditorPrefsKey => "VLiveKitInstaller.PromptShown." + Application.dataPath;
 
     private static readonly PackageSpec[] Packages =
