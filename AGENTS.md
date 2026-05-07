@@ -36,6 +36,8 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 
 ## Unity/C# Conventions
 
+- Inspector / Editor UI consistency guidance lives in `Docs/VLiveKitDesignGuidelines.md`; prefer preserving existing Inspector behavior and adding VLiveKit header/footer affordances before broader UI refactors.
+
 - Prefer existing local namespaces, folder layout, asmdef boundaries, and editor/runtime separation.
 - Put editor-only code under `Editor` folders and keep runtime assemblies free of `UnityEditor` references.
 - Use Unity serialization-friendly patterns for MonoBehaviours and ScriptableObjects.
