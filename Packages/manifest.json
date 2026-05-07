@@ -1,5 +1,17 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "npmjs",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "jp.keijiro",
+        "com.hecomi"
+      ]
+    }
+  ],
   "dependencies": {
+    "com.hecomi.ulipsync": "3.1.4",
+    "com.hecomi.uosc": "2.2.0",
     "com.toshi.vlivekit.artnetlink": "file:VLiveKit_ArtNetLink/Assets/toshi.VLiveKit/ArtNetLink",
     "com.toshi.vlivekit.cameraunit": "file:VLiveKit_camera/Assets/toshi.VLiveKit/VLiveCameraUnit",
     "com.toshi.vlivekit.ledvision": "file:VLiveKit_LEDVision/Assets/toshi.VLiveKit/LEDVision",
@@ -14,6 +26,7 @@
     "com.unity.burst": "1.8.29",
     "com.unity.collections": "2.2.1",
     "com.unity.feature.development": "1.0.1",
+    "com.unity.live-capture": "4.0.1",
     "com.unity.mathematics": "1.3.3",
     "com.unity.render-pipelines.high-definition": "14.0.8",
     "com.unity.textmeshpro": "3.0.6",
@@ -51,6 +64,8 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "jp.keijiro.klak.hap": "0.1.20",
+    "jp.keijiro.klak.ndi": "2.1.4"
   }
 }
