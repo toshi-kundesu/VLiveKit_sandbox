@@ -11,7 +11,6 @@
   ],
   "dependencies": {
     "com.hecomi.ulipsync": "3.1.4",
-    "com.hecomi.uosc": "2.2.0",
     "com.toshi.vlivekit.artnetlink": "file:VLiveKit_ArtNetLink/Assets/toshi.VLiveKit/ArtNetLink",
     "com.toshi.vlivekit.cameraunit": "file:VLiveKit_camera/Assets/toshi.VLiveKit/VLiveCameraUnit",
     "com.toshi.vlivekit.ledvision": "file:VLiveKit_LEDVision/Assets/toshi.VLiveKit/LEDVision",

@@ -10,13 +10,6 @@
       },
       "url": "https://registry.npmjs.com"
     },
-    "com.hecomi.uosc": {
-      "version": "2.2.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://registry.npmjs.com"
-    },
     "com.toshi.memo": {
       "version": "file:Memo",
       "depth": 0,
