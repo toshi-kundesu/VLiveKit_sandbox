@@ -14,11 +14,12 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 ## Working Rules
 
 - Preserve user changes. Do not revert local edits or submodule changes unless explicitly asked.
+- For non-trivial work, create a focused branch before editing, using the `codex/` prefix unless the user requests another branch name.
 - Keep changes scoped to the requested package or sandbox area.
 - Treat `Library/`, `Temp/`, `Logs/`, `UserSettings/`, `dist/`, and generated Unity artifacts as uncommitted build/editor output unless the user specifically asks about them.
 - Commit Unity `.meta` files together with their corresponding assets.
 - Avoid broad package refactors unless the task explicitly requires cross-package changes.
-- When editing submodules under `Packages/`, remember that the submodule repository may need its own commit before the sandbox submodule pointer can be committed.
+- When editing submodules under `Packages/` or sandbox submodules under `Assets/`, remember that the submodule repository may need its own commit before the sandbox submodule pointer can be committed.
 
 ## VLiveKit Package/Release Rules
 
@@ -26,6 +27,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - Keep `com.toshi.vlivekit` free of dependencies that require extra scoped registries; otherwise the installer can fail to update itself before it can add those registries.
 - Do not add dependencies from `com.toshi.vlivekit` to individual VLiveKit packages. This package exists to install/check/update other packages, not to bundle them.
 - Do not publish or package third-party binaries/tools as first-party VLiveKit packages unless the user explicitly approves the license plan. In particular, do not publish `VLiveKit_ThirdPartyUtilities` to npm by default.
+- Keep Tripo Bridge / `Tripo3d_Unity_Bridge` only in the private third-party assets repository unless Tripo AI provides explicit redistribution terms; do not bundle it into public VLiveKit packages or npm releases.
 - Individual VLiveKit packages are separate submodules and npm packages. Updating one package requires changing that package's own `package.json`, committing/tagging/pushing that submodule, then updating the sandbox submodule pointer.
 - The installer reads package metadata from `package-catalog.json`. Keep repository/documentation links there so Refresh can pick up catalog changes from the latest `com.toshi.vlivekit` release.
 - Include `com.toshi.vlivekit` itself in the installer update list/catalog so the package manager can update itself through the same Refresh/Update flow.
@@ -55,6 +57,8 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 git status --short --branch
 git diff --submodule
 ```
+
+- Before starting substantial work or publishing changes, check whether the current branch is behind/diverged from its upstream and whether a merge/rebase would conflict.
 
 - For submodules:
 

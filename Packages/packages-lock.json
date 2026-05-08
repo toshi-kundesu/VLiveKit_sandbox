@@ -71,6 +71,15 @@
       "source": "local",
       "dependencies": {}
     },
+    "com.toshi.vlivekit.stagebuilder": {
+      "version": "file:VLiveKit_StageBuilder/Assets/toshi.VLiveKit/StageBuilder",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.cinemachine": "2.9.7",
+        "com.toshi.vlivekit.testassetscontainer": "0.1.2"
+      }
+    },
     "com.toshi.vlivekit.stageeffect": {
       "version": "file:VLiveKit_StageEffect/Assets/toshi.VLiveKit/StageEffect",
       "depth": 0,
@@ -78,15 +87,6 @@
       "dependencies": {
         "com.unity.render-pipelines.high-definition": "14.0.8",
         "com.unity.visualeffectgraph": "14.0.8"
-      }
-    },
-    "com.toshi.vlivekit.stagebuilder": {
-      "version": "file:VLiveKit_StageBuilder/Assets/toshi.VLiveKit/StageBuilder",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.cinemachine": "2.9.7",
-        "com.toshi.vlivekit.testassetscontainer": "0.1.0"
       }
     },
     "com.toshi.vlivekit.testassetscontainer": {
@@ -462,6 +462,22 @@
       },
       "url": "https://packages.unity.com"
     },
+    "jp.keijiro.klak.hap": {
+      "version": "0.1.20",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.klak.ndi": {
+      "version": "2.1.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.screencapture": "1.0.0"
+      },
+      "url": "https://registry.npmjs.com"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
@@ -704,22 +720,6 @@
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.subsystems": "1.0.0"
       }
-    },
-    "jp.keijiro.klak.hap": {
-      "version": "0.1.20",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://registry.npmjs.com"
-    },
-    "jp.keijiro.klak.ndi": {
-      "version": "2.1.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.screencapture": "1.0.0"
-      },
-      "url": "https://registry.npmjs.com"
     }
   }
 }
