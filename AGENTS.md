@@ -26,6 +26,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - Keep `com.toshi.vlivekit` free of dependencies that require extra scoped registries; otherwise the installer can fail to update itself before it can add those registries.
 - Do not add dependencies from `com.toshi.vlivekit` to individual VLiveKit packages. This package exists to install/check/update other packages, not to bundle them.
 - Do not publish or package third-party binaries/tools as first-party VLiveKit packages unless the user explicitly approves the license plan. In particular, do not publish `VLiveKit_ThirdPartyUtilities` to npm by default.
+- `VLiveKit_ThirdPartyUtilities` is intentionally private and may require GitHub permissions to clone; keep it as a sandbox/submodule dependency only and never npm-publish third-party assets from it.
 - Individual VLiveKit packages are separate submodules and npm packages. Updating one package requires changing that package's own `package.json`, committing/tagging/pushing that submodule, then updating the sandbox submodule pointer.
 - The installer reads package metadata from `package-catalog.json`. Keep repository/documentation links there so Refresh can pick up catalog changes from the latest `com.toshi.vlivekit` release.
 - Include `com.toshi.vlivekit` itself in the installer update list/catalog so the package manager can update itself through the same Refresh/Update flow.
