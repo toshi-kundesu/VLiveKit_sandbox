@@ -14,11 +14,12 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 ## Working Rules
 
 - Preserve user changes. Do not revert local edits or submodule changes unless explicitly asked.
+- For non-trivial work, create a focused branch before editing, using the `codex/` prefix unless the user requests another branch name.
 - Keep changes scoped to the requested package or sandbox area.
 - Treat `Library/`, `Temp/`, `Logs/`, `UserSettings/`, `dist/`, and generated Unity artifacts as uncommitted build/editor output unless the user specifically asks about them.
 - Commit Unity `.meta` files together with their corresponding assets.
 - Avoid broad package refactors unless the task explicitly requires cross-package changes.
-- When editing submodules under `Packages/`, remember that the submodule repository may need its own commit before the sandbox submodule pointer can be committed.
+- When editing submodules under `Packages/` or sandbox submodules under `Assets/`, remember that the submodule repository may need its own commit before the sandbox submodule pointer can be committed.
 
 ## VLiveKit Package/Release Rules
 
@@ -26,6 +27,8 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - Keep `com.toshi.vlivekit` free of dependencies that require extra scoped registries; otherwise the installer can fail to update itself before it can add those registries.
 - Do not add dependencies from `com.toshi.vlivekit` to individual VLiveKit packages. This package exists to install/check/update other packages, not to bundle them.
 - Do not publish or package third-party binaries/tools as first-party VLiveKit packages unless the user explicitly approves the license plan. In particular, do not publish `VLiveKit_ThirdPartyUtilities` to npm by default.
+- Keep Tripo Bridge / `Tripo3d_Unity_Bridge` only in the private third-party assets repository unless Tripo AI provides explicit redistribution terms; do not bundle it into public VLiveKit packages or npm releases.
+- Keep the private third-party assets repository out of VLiveKit installer catalogs and install-all/update flows.
 - Individual VLiveKit packages are separate submodules and npm packages. Updating one package requires changing that package's own `package.json`, committing/tagging/pushing that submodule, then updating the sandbox submodule pointer.
 - The installer reads package metadata from `package-catalog.json`. Keep repository/documentation links there so Refresh can pick up catalog changes from the latest `com.toshi.vlivekit` release.
 - Include `com.toshi.vlivekit` itself in the installer update list/catalog so the package manager can update itself through the same Refresh/Update flow.
@@ -33,6 +36,9 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - `Refresh` should check the latest published npm registry state. It should not be assumed to track GitHub `main` or submodule HEADs directly.
 - Use `npm.cmd` on Windows PowerShell for npm operations to avoid `npm.ps1` execution policy issues.
 - Before publishing, run `npm.cmd pack --dry-run --cache D:\GitHub\VLiveKit_sandbox\.npm-cache` from the package root and confirm the tarball contains only intended files.
+- For public UPM releases, prefer signed packages using Unity 6.3.5f2 or newer `-upmPack` before `npm.cmd publish` so Unity Package Manager does not show `Missing Signature`. The signing command requires `-cloudOrganization`, `-username`, and `-password`; use environment variables or a secure local secret flow, not pasted chat credentials.
+- Verify signed `.tgz` files contain `.attestation.p7m` before publishing. Publish the signed tarball path with `npm.cmd publish <signed.tgz> --cache D:\GitHub\VLiveKit_sandbox\.npm-cache`.
+- For UPM samples, publish the actual importable content from `Samples~/...` and list it in `package.json` `samples`; a visible `Sample/` folder may be kept only as a local development copy and should be excluded from npm packages when duplicated.
 - After publishing, verify with `npm.cmd view <package> version dependencies --json --cache D:\GitHub\VLiveKit_sandbox\.npm-cache`.
 - Release order for a package: bump `package.json`, update README install examples if needed, pack dry-run, publish to npm, commit, tag `vX.Y.Z`, push branch/tag, then commit/push the sandbox submodule pointer.
 - When releasing a submodule change, push the matching `vX.Y.Z` tag from that submodule repository; do not rely on the sandbox submodule pointer alone as the release marker.
@@ -49,6 +55,20 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - Keep public serialized fields and inspector labels stable unless a migration is part of the task.
 - Add comments only for non-obvious Unity lifecycle, rendering, shader, or timeline behavior.
 
+## VLiveKit Editor UI Design Guidelines
+
+- Treat Apple Human Interface Guidelines Foundations as the baseline for VLiveKit editor UI decisions: clarity, hierarchy, consistency, accessibility, direct feedback, and restrained use of color.
+- Prefer native Unity editor controls, table/list structures, clear labels, separators, and spacing over decorative cards, banners, gradients, or custom visual styling.
+- Avoid green-tinted, warning-tinted, or success-tinted backgrounds for general UI. Use neutral dark/light grays for surfaces and separators.
+- Use color only when it carries a specific UI meaning. Keep the primary accent close to Apple system blue for primary actions and progress; do not use broad green accents to imply safety or success.
+- Do not show exclamation/warning-style UI from VLiveKit code for ordinary states, success messages, fallback behavior, or recoverable Package Manager timing issues. Prefer inline status text, window notifications, neutral notices, and `Debug.Log` instead of `DisplayDialog`, `HelpBox(MessageType.Warning)`, `Debug.LogWarning`, or `Debug.LogError`.
+- Use status labels and plain language to communicate package state (`Current`, `Missing`, `Local`, `Update`) rather than relying on color alone.
+- Keep copy short, calm, and specific. Avoid alarming titles, excessive punctuation, or instructions that make normal installation feel risky. Backup guidance should be neutral and practical.
+- Keep installer/package-manager surfaces dense enough for repeated editor use: avoid landing-page-like composition, oversized hero areas, nested cards, decorative imagery, and one-note palettes.
+- Design for both Unity light and dark editor skins. Ensure contrast comes from text hierarchy and separators, not saturated background color.
+- Bootstrap and first-run prompts should match the package manager tone: neutral, concise, and icon-free, with no scary warning dialogs generated by VLiveKit code.
+- Share VLiveKit editor UI primitives through `VLiveKitEditorUI` for windows in `com.toshi.vlivekit`. Add new shared styles there instead of duplicating colors, spacing, panel, separator, header, or button rules in each window.
+
 ## Verification
 
 - For repository state:
@@ -57,6 +77,8 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 git status --short --branch
 git diff --submodule
 ```
+
+- Before starting substantial work or publishing changes, check whether the current branch is behind/diverged from its upstream and whether a merge/rebase would conflict.
 
 - For submodules:
 
@@ -72,7 +94,6 @@ git submodule update --init --recursive
 - Use this file as the project memory for Codex CLI/Codex Desktop.
 - Prefer concise Japanese explanations when the user writes in Japanese.
 - If a task depends on current external docs, verify them from official sources before implementing.
-- When a durable project rule, release lesson, license constraint, or recurring workflow becomes clear, proactively add a concise note to this file and mention it to the user. Avoid adding temporary conversation notes or noisy details.
-- Keep VLiveKitPackageManager UI restrained: two-color styling, dark/light base plus cyan accent, and no decorative multicolor signal lines.
+- When a durable project rule, release lesson, license constraint, recurring workflow, UI/design guideline, or implementation lesson becomes clear, proactively add a concise note to this file and mention it to the user. Avoid adding temporary conversation notes or noisy details.
 - In Unity IMGUI editor windows, do not trust a standalone `stylesReady` flag after domain reloads; also check cached `GUIStyle` fields for null before skipping style initialization.
 - When reading Unity Console entries via reflection, `LogEntry` may behave like a value type; after `GetEntryInternal` returns, read the populated entry back from the invocation argument array.
