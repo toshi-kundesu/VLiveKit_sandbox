@@ -44,7 +44,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - After publishing, verify with `npm.cmd view <package> version dependencies --json --cache D:\GitHub\VLiveKit_sandbox\.npm-cache`.
 - Release order for a package: bump `package.json`, update README install examples if needed, pack dry-run, publish to npm, commit, tag `vX.Y.Z`, push branch/tag, then commit/push the sandbox submodule pointer.
 - When releasing a submodule change, push the matching `vX.Y.Z` tag from that submodule repository; do not rely on the sandbox submodule pointer alone as the release marker.
-- When releasing `Packages/VLiveKit_VideoRack` with bundled FFmpeg, read `Assets/toshi.VLiveKit/VideoRack/ThirdPartyNotices/FFmpeg.md` first. Preserve `Tools/FFmpeg/Windows/ffmpeg.exe`, `GPL-3.0.txt`, and upstream `README.txt`, and include clear Corresponding Source instructions in the release notes/download page.
+- When releasing `Packages/VLiveKit_VideoRack` with bundled FFmpeg, read `Assets/toshi.VLiveKit/VideoRack/ThirdPartyNotices/FFmpeg.md` first. Preserve the Windows executable payload (`Tools/FFmpeg/Windows/ffmpeg.exe` or all `ffmpeg.exe.part*.bytes` split files), `GPL-3.0.txt`, and upstream `README.txt`, and include clear Corresponding Source instructions in the release notes/download page.
 
 ## Unity/C# Conventions
 
