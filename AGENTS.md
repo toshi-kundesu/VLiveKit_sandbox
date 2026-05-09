@@ -104,3 +104,4 @@ git submodule update --init --recursive
 - Keep Memo/Zenn editor entry points under `toshi/VLiveKit/Project/Zenn Window`; do not expose separate `Tools/Memo` commands for preview/start/create actions.
 - For project-wide recommended settings, expose menu items as `Open` only; keep apply actions inside the window so users can review before changing project settings.
 - When adding or changing a VLiveKit package feature, editor window, menu, sample, or installer-visible behavior, update that package's README with clear user-facing usage and package contents instead of adding explanatory UI to the installer.
+- For Unity/HDRP API migrations, prefer version-gated helper methods around renamed light/entity APIs; suppress obsolete warnings only when Unity keeps an old callback shape in a version that marks the lookup API obsolete.
