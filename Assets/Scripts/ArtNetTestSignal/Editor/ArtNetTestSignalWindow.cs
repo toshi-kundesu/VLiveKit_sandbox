@@ -20,11 +20,10 @@ namespace VLiveKit.Sandbox.ArtNet.Editor
         private Vector2 scrollPosition;
         private GUIStyle statusStyle;
 
-        [MenuItem("VLiveKit/Tools/Art-Net Test Signal")]
         public static void Open()
         {
             ArtNetTestSignalWindow window = GetWindow<ArtNetTestSignalWindow>();
-            window.titleContent = new GUIContent("Art-Net Test");
+            window.titleContent = new GUIContent("SimpleLightConsole Prototype");
             window.minSize = new Vector2(420f, 560f);
             window.Show();
         }
@@ -58,7 +57,7 @@ namespace VLiveKit.Sandbox.ArtNet.Editor
         private void DrawHeader()
         {
             EditorGUILayout.Space(4f);
-            EditorGUILayout.LabelField("Art-Net Test Signal", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("SimpleLightConsole Prototype", EditorStyles.boldLabel);
             EditorGUILayout.HelpBox(
                 "Art-Net送信ライブラリを後から差し替えられるように、DMXフレーム生成・送信設定・UIを分離したテストツールのベースです。現状はNull送信なのでネットワーク送信は行いません。",
                 MessageType.Info);
