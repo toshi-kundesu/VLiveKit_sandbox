@@ -24,10 +24,13 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 ## VLiveKit Package/Release Rules
 
 - `Packages/VLiveKit` is the installer/package-manager repository (`com.toshi.vlivekit`) and should stay installer-only.
+- Put reusable test-scene helper components, such as scene description popups, in `VLiveKit_TestAssetsContainer` or the owning test package instead of `Packages/VLiveKit`.
 - Kino-derived or Kino-inspired code that has been modified for `VLiveKit_LiveLensFilters` should be treated as VLiveKit LiveLensFilters code: keep menus/shader paths grouped under `toshi/LensFilters` while preserving third-party license notices.
 - Keep `com.toshi.vlivekit` free of dependencies that require extra scoped registries; otherwise the installer can fail to update itself before it can add those registries.
 - Do not add dependencies from `com.toshi.vlivekit` to individual VLiveKit packages. This package exists to install/check/update other packages, not to bundle them.
 - Do not publish or package third-party binaries/tools as first-party VLiveKit packages unless the user explicitly approves the license plan. In particular, do not publish `VLiveKit_ThirdPartyUtilities` to npm by default.
+- When bundling approved third-party texture/material assets in a public VLiveKit package, keep the source URL, copied license/terms, and included file scope in that package's `ThirdPartyNotices`.
+- For third-party avatar/model assets used in public npm samples or test scenes, bundle only assets whose source terms explicitly allow redistribution, keep them under samples/test asset paths, and include separate third-party notices; do not mark VRM metadata as CC0 unless the source license is actually CC0.
 - `VLiveKit_ThirdPartyUtilities` is intentionally private and may require GitHub permissions to clone; keep it as a sandbox/submodule dependency only and never npm-publish third-party assets from it.
 - Keep Tripo Bridge / `Tripo3d_Unity_Bridge` only in the private third-party assets repository unless Tripo AI provides explicit redistribution terms; do not bundle it into public VLiveKit packages or npm releases.
 - Keep the private third-party assets repository out of VLiveKit installer catalogs and install-all/update flows.
@@ -44,7 +47,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 - After publishing, verify with `npm.cmd view <package> version dependencies --json --cache D:\GitHub\VLiveKit_sandbox\.npm-cache`.
 - Release order for a package: bump `package.json`, update README install examples if needed, pack dry-run, publish to npm, commit, tag `vX.Y.Z`, push branch/tag, then commit/push the sandbox submodule pointer.
 - When releasing a submodule change, push the matching `vX.Y.Z` tag from that submodule repository; do not rely on the sandbox submodule pointer alone as the release marker.
-- When releasing `Packages/VLiveKit_VideoRack` with bundled FFmpeg, read `Assets/toshi.VLiveKit/VideoRack/ThirdPartyNotices/FFmpeg.md` first. Preserve `Tools/FFmpeg/Windows/ffmpeg.exe`, `GPL-3.0.txt`, and upstream `README.txt`, and include clear Corresponding Source instructions in the release notes/download page.
+- When releasing `Packages/VLiveKit_VideoRack` with bundled FFmpeg, read `Assets/toshi.VLiveKit/VideoRack/ThirdPartyNotices/FFmpeg.md` first. Preserve the Windows executable payload (`Tools/FFmpeg/Windows/ffmpeg.exe` or all `ffmpeg.exe.part*.bytes` split files), `GPL-3.0.txt`, and upstream `README.txt`, and include clear Corresponding Source instructions in the release notes/download page.
 
 ## Unity/C# Conventions
 
@@ -105,3 +108,19 @@ git submodule update --init --recursive
 - For project-wide recommended settings, expose menu items as `Open` only; keep apply actions inside the window so users can review before changing project settings.
 - When adding or changing a VLiveKit package feature, editor window, menu, sample, or installer-visible behavior, update that package's README with clear user-facing usage and package contents instead of adding explanatory UI to the installer.
 - For Unity/HDRP API migrations, prefer version-gated helper methods around renamed light/entity APIs; suppress obsolete warnings only when Unity keeps an old callback shape in a version that marks the lookup API obsolete.
+- For VLiveKit test/monitor editor windows such as NDI, LTC, and OSC tools, prefer a window-owned live mode that works without Play Mode; keep scene rig creation as an optional handoff path when a persistent setup is useful.
+- Unity Package Manager does not support Git URL dependencies inside a package `package.json`; add Git packages to the project `Packages/manifest.json`, or publish/mirror them to a scoped registry before making another package depend on them.
+- When analyzing or customizing HDRP Lit internals, confirm the active HDRP package version from `Packages/manifest.json` and `Library/PackageCache`; keep Lit shader properties, local keywords, and `LitAPI`/`BaseLitAPI` material validation logic in sync.
+- For minimal HDRP shaders that include `VertMesh.hlsl` but own their fragment shader, define a small `Vert` wrapper that returns `PackVaryingsType(VertMesh(...))`; `VertMesh.hlsl` alone does not provide the `#pragma vertex Vert` entry point.
+- For HDRP depth-buffer Sobel rim tests, sample `SampleCameraDepth` from view-space offsets around the object position and include a `DepthOnly` pass so the object can participate in the camera depth texture.
+- For HDRP custom post-process test effects, add the component type to HDRP Global Settings Custom Post Process Orders at the matching injection point; tone-mapping replacements should run after post-process blurs and disable built-in Tonemapping to avoid double mapping.
+- For LiveToon VRM 0.x shader conversion issues, compare converted Unity Material assets against the source `.vrm` `extensions.VRM.materialProperties` before changing converter logic; if values match but the model renders black, inspect the LiveToon shader lighting fallback rather than assuming property loss.
+- LiveToon VRM conversion should preserve MToon culling values; if culling appears inverted, inspect whether the shader is using the legacy GBuffer/depth-normal path instead of the ForwardOnly toon pass before changing converter logic.
+- For LiveToon VRM 0.x conversion, start from the LoadModel-style baseline: swap to the LiveToon shader, preserve existing MToon-compatible material properties such as `_CullMode`, `_SrcBlend`, `_DstBlend`, `_ZWrite`, and `_BlendMode`, then adjust only minimal derived state such as `renderQueue` and missing `_ShadeTexture`.
+- MToon Transparent opacity should be carried through `_Color.a` multiplied by `_MainTex.a`; explicitly preserve `_Color` during LiveToon conversion before adding any extra transparent threshold behavior.
+- After a LiveToon shader swap, restore `RenderType` tags and alpha keywords from `_BlendMode`; Unity can drop material override tags such as `RenderType: Transparent`, which breaks transparent eye materials even when `_BlendMode`, blend factors, and textures match the backup.
+- For LiveToon VRM Transparent materials, keep `_BlendMode` as Transparent and preserve LiveToon's legacy transparent opacity formula from the ShadowCaster path before simplifying to `_Color.a * _MainTex.a`; the dither `clip` belongs to shadow/depth-style passes, not ordinary Forward alpha blending.
+- LiveToon's Forward pass uses `_ZTeForLiOpa` for `ZTest`; keep Cutout and Transparent/TransparentWithZWrite materials on `LEqual` (`4`) while Opaque may use `Equal` (`3`), otherwise VRM transparency and alpha-tested facial/hair details can composite incorrectly.
+- Guard LiveToon transparent atmospheric scattering behind `_ENABLE_FOG_ON_TRANSPARENT`; VRM conversion should enable the keyword for Transparent materials like the legacy LoadModel flow, while Opaque/Cutout materials keep it disabled.
+- Do not add LiveToon cull indirection or forced debug cull properties until the shader-side culling path is proven to require it; first verify that Off/Front/Back values are preserved directly on `_CullMode`.
+- The LiveToon shader converter should skip materials already using the LiveToon shader; restore from a backup before reconverting so original VRM 0.x cull, outline-cull, and keyword values are not replaced by stale converted values.
