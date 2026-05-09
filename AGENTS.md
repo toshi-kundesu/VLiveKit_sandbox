@@ -24,6 +24,7 @@ This repository is a Unity sandbox project for developing and validating VLiveKi
 ## VLiveKit Package/Release Rules
 
 - `Packages/VLiveKit` is the installer/package-manager repository (`com.toshi.vlivekit`) and should stay installer-only.
+- Kino-derived or Kino-inspired code that has been modified for `VLiveKit_LiveLensFilters` should be treated as VLiveKit LiveLensFilters code: keep menus/shader paths grouped under `toshi/LensFilters` while preserving third-party license notices.
 - Keep `com.toshi.vlivekit` free of dependencies that require extra scoped registries; otherwise the installer can fail to update itself before it can add those registries.
 - Do not add dependencies from `com.toshi.vlivekit` to individual VLiveKit packages. This package exists to install/check/update other packages, not to bundle them.
 - Do not publish or package third-party binaries/tools as first-party VLiveKit packages unless the user explicitly approves the license plan. In particular, do not publish `VLiveKit_ThirdPartyUtilities` to npm by default.
@@ -98,3 +99,8 @@ git submodule update --init --recursive
 - When a durable project rule, release lesson, license constraint, recurring workflow, UI/design guideline, or implementation lesson becomes clear, proactively add a concise note to this file and mention it to the user. Avoid adding temporary conversation notes or noisy details.
 - In Unity IMGUI editor windows, do not trust a standalone `stylesReady` flag after domain reloads; also check cached `GUIStyle` fields for null before skipping style initialization.
 - When reading Unity Console entries via reflection, `LogEntry` may behave like a value type; after `GetEntryInternal` returns, read the populated entry back from the invocation argument array.
+- Prefer UPM dependencies for common third-party libraries such as OscJack, uOSC, and uLipSync instead of vendoring their source inside VLiveKit packages; keep bundled copies only when the registry version does not match the required embedded version or the license/distribution plan needs explicit approval.
+- In the VLiveKit installer, treat Unity Package Manager `PackageInfo.source` values `Local`/`Embedded` and manifest `file:` dependencies as local installs before registry update logic, so sandbox submodules are detected and never overwritten by installer updates.
+- Keep Memo/Zenn editor entry points under `toshi/VLiveKit/Project/Zenn Window`; do not expose separate `Tools/Memo` commands for preview/start/create actions.
+- For project-wide recommended settings, expose menu items as `Open` only; keep apply actions inside the window so users can review before changing project settings.
+- When adding or changing a VLiveKit package feature, editor window, menu, sample, or installer-visible behavior, update that package's README with clear user-facing usage and package contents instead of adding explanatory UI to the installer.
