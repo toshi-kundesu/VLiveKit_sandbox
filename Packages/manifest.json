@@ -1,6 +1,13 @@
 {
   "scopedRegistries": [
     {
+      "name": "toshi",
+      "url": "https://registry.npmjs.org/",
+      "scopes": [
+        "com.toshi"
+      ]
+    },
+    {
       "name": "npmjs",
       "url": "https://registry.npmjs.com",
       "scopes": [
@@ -10,6 +17,7 @@
     }
   ],
   "dependencies": {
+    "com.hecomi.uosc": "1.0.1",
     "com.hecomi.ulipsync": "3.1.4",
     "com.toshi.vlivekit.artnetlink": "file:VLiveKit_ArtNetLink/Assets/toshi.VLiveKit/ArtNetLink",
     "com.toshi.vlivekit.cameraunit": "file:VLiveKit_camera/Assets/toshi.VLiveKit/VLiveCameraUnit",
@@ -31,7 +39,6 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.5",
     "com.unity.ugui": "1.0.0",
-    "com.unity.visual-compositor": "0.30.7-preview",
     "com.unity.visualscripting": "1.9.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
@@ -64,7 +71,10 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
+    "jp.keijiro.osc-jack": "2.0.0",
+    "jp.keijiro.kino.post-processing": "2.1.12",
     "jp.keijiro.klak.hap": "0.1.20",
-    "jp.keijiro.klak.ndi": "2.1.4"
+    "jp.keijiro.klak.ndi": "2.1.4",
+    "jp.supertask.cinema.post-processing": "https://github.com/supertask/Cinema.git?path=/Packages/jp.supertask.cinema.post-processing"
   }
 }
