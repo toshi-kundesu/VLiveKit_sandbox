@@ -85,9 +85,17 @@ Check registered MCP servers:
 codex mcp list
 ```
 
+## Unity MCP Notes
+
+- Unity AI Assistant / MCP is installed through `com.unity.ai.assistant`.
+- The Unity relay is normally installed under `%USERPROFILE%\.unity\relay\relay_win.exe`.
+- Active Unity MCP discovery files live under `%USERPROFILE%\.unity\mcp\connections\*.json`.
+- When launching the relay manually, use the `project_path` from the discovery file; Unity may record the project `Assets` folder instead of the repository root.
+- Prefer read-only MCP calls first: console read, active scene read, and hierarchy read. Do not save dirty scenes unless the user asks.
+
 ## Unity Sandbox Reminders
 
-- Open this repository root in Unity Hub with Unity `2022.3.9f1`.
+- Open this repository root in Unity Hub with Unity `6000.3.14f1`.
 - Keep generated directories out of commits.
 - When changing files inside `Packages/VLiveKit_*`, check whether the package is a submodule and commit the submodule change separately when needed.
 - Commit `.meta` files with Unity assets.
